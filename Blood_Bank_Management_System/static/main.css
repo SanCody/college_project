@@ -1,0 +1,16 @@
+*{
+    margin:0;
+    padding:0;
+}
+body {
+    background: linear-gradient(144deg, rgba(35,28,103,1), rgba(119,30,134,1)); 
+    height:100vh;
+}
+.ba{
+    background-color: red;
+} 
+nav div ul .nav-item:hover, nav div ul .nav-item:active {
+    border: 1px solid #ffffff;
+    color: white;
+}
+
