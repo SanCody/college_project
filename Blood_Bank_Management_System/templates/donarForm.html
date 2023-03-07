@@ -13,7 +13,7 @@
         </div>
         <div class="modal-body">
           <div class="container-fluid">
-            <form action="submit" method="post" class="row" id="Donar_Form">
+            <form action="{% url 'donations' %}" method="POST" class="post-form row" id="Donor_Form">
                 {% csrf_token %}
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="form-group">
@@ -59,7 +59,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button onclick="form_submit()" type="submit" class="btn btn-primary" data-target="Donar_Form">Submit</button>
+          <button onclick="form_submit()" type="submit" class="btn btn-primary">Submit</button>
         </div>
       </div>
     </div>
@@ -67,6 +67,6 @@
 
   <script type="text/javascript">
     function form_submit() {
-      document.getElementById("Donar_Form").submit();
+      document.getElementById("Donor_Form").submit();
      }    
     </script>

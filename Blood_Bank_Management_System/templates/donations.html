@@ -6,23 +6,27 @@
 
 <h1>Donations</h1> 
 {% include "donarForm.html" %}
-  
+
 <table class="table table-striped" style="color: #fff;">
     <thead style="background-color: #a81d63;">
         <tr>
             <th>Name</th>
+            <th>Gender</th>
             <th>Contact</th>
             <th>Blood Type</th>
             <th>Vloume</th>
+            <th>Date</th>
         </tr>
     </thead>
     <tbody>
-        {% for donar in details %}
+        {% for donor in details %}
         <tr>
-            <td>{{donar.name}}</td>
-            <td>{{donar.contact}}</td>
-            <td>{{donar.blood}}</td>
-            <td>{{donar.volume}}</td>
+            <td>{{donor.name}}</td>
+            <td>{{donor.gender}}</td>
+            <td>{{donor.contact}}</td>
+            <td>{{donor.blood}}</td>
+            <td>{{donor.volume}}</td>
+            <td>{{donor.date}}</td>
         </tr>
         {% endfor %}
     </tbody>

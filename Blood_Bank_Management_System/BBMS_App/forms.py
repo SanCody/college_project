@@ -1,7 +1,7 @@
 from django import forms
-from .models import Donar_Detail
+from .models import Donor_Detail
 
-class DonarForm(forms.ModelForm):
+class DonorForm(forms.ModelForm):
     class Meta:
-        model= Donar_Detail
-        fields= ["name", "gender", "email", "contact", "address", "date", "blood", "volume"]
+        model= Donor_Detail
+        fields= ["id", "name", "gender", "email", "contact", "address", "date", "blood", "volume"]
