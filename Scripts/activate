@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="E:\Python\Python Django\BBMS"
+VIRTUAL_ENV="E:\college project\New\BBMS"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
