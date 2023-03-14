@@ -1,0 +1,69 @@
+{% extends "main.html" %}
+
+{% block body %}
+<div class="container-fluid d-flex align-items-center justify-content-center" style="height: 100vh;">
+  <div class="row card d-flex" style="background-color: rgba(239, 252, 252, 0.103); width: 100vh;">
+    <h1 class="pl-2"><i class="fas fa-pen text-white" style="font-size: 30px;"></i> <u>Edit</u></h1>
+    <div class="pl-3 pr-3">
+      <form action="/updateDonor/{{donor.id}}" method="POST" class="post-form row" id="Donor_Form">
+          {% csrf_token %}
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" name="name" value="{{donor.name}}">
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select class="form-control" id="" name="gender">
+                <option selected hidden>{{donor.gender}}</option>
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email"class="form-control" name="email" value="{{donor.email}}">
+            </div>
+            <div class="form-group">
+              <label for="contact">Contact</label>
+              <input type="tel" class="form-control" name="contact" value="{{donor.contact}}">
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+                <textarea class="form-control" rows="3" name="address">{{donor.address}}</textarea>
+              </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label for="date">Donation Date</label>
+              <input type="date" class="form-control" name="date" value="{{donor.date|date:'Y-m-d'}}">
+            </div>
+            <div class="form-group">
+              <label for="blood">Blood Type</label>
+              <select class="form-control" id="" name="blood">
+                <option selected hidden>{{donor.blood}}</option>
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+                <option>O+</option>
+                <option>O-</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="volume">Blood Volume</label>
+              <input type="number" class="form-control" name="volume" value="{{donor.volume}}">
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-end" style="width: 100%;">
+          <button type="button" class="btn btn-success" onclick="window.history.back()">Back</button>
+          <button type="submit" class="btn btn-primary ml-3">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

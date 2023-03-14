@@ -7,29 +7,41 @@
 <h1>Donations</h1> 
 {% include "donarForm.html" %}
 
-<table class="table table-striped" style="color: #fff;">
-    <thead style="background-color: #a81d63;">
-        <tr>
+<table class="table table-striped tabhov shadow" style="color: #fff;">
+    <thead style="background-color: rgba(0, 0, 0, 0.47);">
+        <tr class="text-center">
+            <th>S.No</th>
             <th>Name</th>
             <th>Gender</th>
             <th>Contact</th>
-            <th>Blood Type</th>
-            <th>Vloume</th>
+            <th>Blood Type (Volume)</th>
             <th>Date</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
         {% for donor in details %}
-        <tr>
+        <tr class="text-center">
+            <td>{{forloop.counter}}</td>
             <td>{{donor.name}}</td>
             <td>{{donor.gender}}</td>
             <td>{{donor.contact}}</td>
-            <td>{{donor.blood}}</td>
-            <td>{{donor.volume}}</td>
+            <td>{{donor.blood}} ({{donor.volume}} ml)</td>
             <td>{{donor.date}}</td>
+            <td>
+                <a href="/viewDonation/{{donor.id}}" id="#viewDonor" data-toggle="tooltip" data-placement="top" title="View" data-toggle="modal" data-target="#view_Donor"><i class="fas fa-eye text-white" ></i></a> | 
+                <a href="/updateDonor/{{donor.id}}" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pen text-white"  data-toggle="modal" data-target="#ModalCenter1"></i></a> |
+                <a href="/deleteDonor/{{donor.id}}" onclick="return confirm('Are you sure to Delete')" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fas fa-trash text-white"></i></a>
+            </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+
+<script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();   
+    });
+</script>
 
 {% endblock %}

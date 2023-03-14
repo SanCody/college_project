@@ -4,7 +4,7 @@
   
   <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby=ModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 700px;">
-      <div class="modal-content" style="background-color: #5e0c77;">
+      <div class="modal-content" style="background-color: #ffffff2e; backdrop-filter: blur(5px);">
         <div class="modal-header">
           <h4 class="modal-title">+ Add Donation</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -35,10 +35,7 @@
                       <label for="contact">Contact</label>
                       <input type="tel" class="form-control" name="contact">
                     </div>
-                    <div class="form-group">
-                        <label for="address">Address</label>
-                        <textarea class="form-control" rows="3" name="address"></textarea>
-                    </div>
+                  
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="form-group">
@@ -47,26 +44,40 @@
                     </div>
                     <div class="form-group">
                       <label for="blood">Blood Type</label>
-                      <input type="text" class="form-control" name="blood" placeholder="O+ or O-">
+                      <select class="form-control" id="" name="blood">
+                      <option value="" disabled selected hidden>Please Select Here</option>
+                      <option>A+</option>
+                      <option>A-</option>
+                      <option>B+</option>
+                      <option>B-</option>
+                      <option>AB+</option>
+                      <option>AB-</option>
+                      <option>O+</option>
+                      <option>O-</option>
+                    </select>
                     </div>
                     <div class="form-group">
                       <label for="volume">Blood Volume</label>
-                      <input type="number" class="form-control" name="volume">
+                      <input type="number" class="form-control" name="volume" min="200" max="1000">
                     </div>
+                    <div class="form-group">
+                      <label for="address">Address</label>
+                      <textarea class="form-control" rows="3" name="address" style="resize: none;"></textarea>
+                  </div>
                 </div>
             </form>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button onclick="form_submit()" type="submit" class="btn btn-primary">Submit</button>
+          <button onclick="donor_form_submit()" type="submit" class="btn btn-primary">Submit</button>
         </div>
       </div>
     </div>
   </div>
 
   <script type="text/javascript">
-    function form_submit() {
+    function donor_form_submit() {
       document.getElementById("Donor_Form").submit();
      }    
     </script>

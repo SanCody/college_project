@@ -4,6 +4,16 @@
 {% block body %}
 {% include "navigation.html" %}
 
-<h1>ba</h1>
+{% for card in bloodGroup %}
+<div class="col-xl-3 col-sm-6 mb-xl-4 mb-4">
+    <div class="card text-right" style="width: 18rem; background-color: #fffefe1a; border-radius: 1.25rem;">
+        <div class="card-body">
+          <h5 class="card-title"><i class="fa-solid fa-droplet" style="color: red;"></i> </h5>
+          <p class="card-text">{{ card.get_total_volume }}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+</div>
+{% endfor %}
 
 {% endblock %}
