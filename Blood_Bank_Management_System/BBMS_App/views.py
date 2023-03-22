@@ -9,12 +9,34 @@ from django.db.models import Sum
 
 
 def blood_available(req):
-    context = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]
-    bloodVolume = Donor_Detail.objects.filter(blood=context).aggregate(Sum('volume'))
-    
-    print(bloodVolume)
-    return render(req, "blood_available.html") # type: ignore
 
+
+
+    bloodVol ={
+        "AP": float(str(eval(str(*Donor_Detail.objects.filter(blood='A+').aggregate(Sum('volume')).values())) or 0))*0.001, 
+
+        "AN": float(str(eval(str(*Donor_Detail.objects.filter(blood='A-').aggregate(Sum('volume')).values())) or 0))*0.001,
+
+        "BP": float(str(eval(str(*Donor_Detail.objects.filter(blood='B+').aggregate(Sum('volume')).values())) or 0))*0.001,
+        
+        "BN": float(str(eval(str(*Donor_Detail.objects.filter(blood='B-').aggregate(Sum('volume')).values())) or 0))*0.001,
+
+        "ABP":float(str(eval(str(*Donor_Detail.objects.filter(blood='AB+').aggregate(Sum('volume')).values())) or 0))*0.001,  
+        
+        "ABN":float(str(eval(str(*Donor_Detail.objects.filter(blood='AB-').aggregate(Sum('volume')).values())) or 0))*0.001,
+
+        "OP": float(str(eval(str(*Donor_Detail.objects.filter(blood='O+').aggregate(Sum('volume')).values())) or 0))*0.001,
+
+        "ON": float(str(eval(str(*Donor_Detail.objects.filter(blood='O-').aggregate(Sum('volume')).values())) or 0))*0.001,    
+    }
+
+    return render(req, "blood_available.html", bloodVol) 
+
+def BloodAv(req, blood):
+    bd = Donor_Detail.objects.filter(blood=blood)
+    bloodD = { 'bd': bd }
+
+    return render(req, "bloodDetail.html", bloodD)
 
 # <---------------|| Donations ||--------------->
 

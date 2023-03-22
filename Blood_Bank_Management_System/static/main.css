@@ -4,7 +4,7 @@
 }
 body {
     background: linear-gradient(144deg, rgba(35,28,103,1), rgba(119,30,134,1)); 
-    height:100vh;
+    height:100%;
     /* background-image: url('image/BB-logo.png');
   background-repeat: no-repeat;
   background-attachment: fixed;

@@ -6,6 +6,8 @@ urlpatterns = [
 
     # Home
     path('', views.blood_available, name="blood_available"),
+    # path('Blood Available/A+', views.BloodAv, name="A+"),
+    path('Blood Available/<str:blood>', views.BloodAv, name="bType"),
 
     # Donations
     path('Donations/', views.donations, name="donations"),

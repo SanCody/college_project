@@ -1,0 +1,46 @@
+{% extends "main.html" %}
+{% block title %}Blood Available{% endblock %}
+
+{% block body %}
+{% include "navigation.html" %}
+
+<h1>Blood for : A+</h1> 
+
+<table class="table table-striped tabhov shadow" style="color: #fff;">
+    <thead style="background-color: rgba(0, 0, 0, 0.47);">
+        <tr class="text-center">
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Contact</th>
+            <th>Blood Type (Volume)</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for bd in bd %}
+        <tr class="text-center">
+            <td>{{forloop.counter}}</td>
+            <td>{{bd.name}}</td>
+            <td>{{bd.gender}}</td>
+            <td>{{bd.contact}}</td>
+            <td>{{bd.blood}} ({{bd.volume}} ml)</td>
+            <td>{{bd.date}}</td>
+            <td>
+                <a href="/viewDonation/{{bd.id}}" id="#viewDonor" data-toggle="tooltip" data-placement="top" title="View" data-toggle="modal" data-target="#view_Donor"><i class="fas fa-eye text-white" ></i></a> | 
+                <a href="/updateDonor/{{bd.id}}" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pen text-white"  data-toggle="modal" data-target="#ModalCenter1"></i></a> |
+                <a href="/deleteDonor/{{bd.id}}" onclick="return confirm('Are you sure to Delete')" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fas fa-trash text-white"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();   
+    });
+</script>
+
+{% endblock %}
