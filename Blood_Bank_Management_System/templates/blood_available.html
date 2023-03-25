@@ -5,104 +5,104 @@
 {% include "navigation.html" %}
 <div class="row">
 <div class="col-xl-3 col-sm-6 mb-xl-4 mb-4">
-    <div class="card text-right" style="width: 18rem; background-color: #fffefe1a; border-radius: 1.25rem;">
+    <div class="card text-right shadow" style="width: 18rem; background-color: #fffefe1a; border-radius: 1.25rem;">
         <div class="card-body">
           <h5 class="card-title text-left"><i class="fa-solid fa-droplet" style="color: red;"></i> Available for A+</h5>
           {% if AP == None %}
           <p class="card-text">No Available</p>
           {% else %}
-          <p class="card-text"><h4>{{ AP|floatformat:2 }} L</h4></p>
+          <p class="card-text" style="font-size: 25px;">{{ AP|floatformat:2 }} L</p>
           {% endif %}
           <a href="{% url 'bType' blood='A+' %}" class="btn btn-primary">Show</a>
         </div>
       </div>
 </div>
 <div class="col-xl-3 col-sm-6 mb-xl-4 mb-4">
-    <div class="card text-right" style="width: 18rem; background-color: #fffefe1a; border-radius: 1.25rem;">
+    <div class="card text-right shadow" style="width: 18rem; background-color: #fffefe1a; border-radius: 1.25rem;">
         <div class="card-body">
           <h5 class="card-title text-left"><i class="fa-solid fa-droplet" style="color: red;"></i> Available for A-</h5>
           {% if AN == None %}
           <p class="card-text">No Available</p>
           {% else %}
-          <p class="card-text">{{ AN }} L</p>
+          <p class="card-text" style="font-size: 25px;">{{ AN|floatformat:2 }} L</p>
           {% endif %}
           <a href="{% url 'bType' blood='A-' %}" class="btn btn-primary">Show</a>
         </div>
       </div>
 </div>
 <div class="col-xl-3 col-sm-6 mb-xl-4 mb-4">
-    <div class="card text-right" style="width: 18rem; background-color: #fffefe1a; border-radius: 1.25rem;">
+    <div class="card text-right shadow" style="width: 18rem; background-color: #fffefe1a; border-radius: 1.25rem;">
         <div class="card-body">
           <h5 class="card-title text-left"><i class="fa-solid fa-droplet" style="color: red;"></i> Available for B+</h5>
           {% if BP == None %}
           <p class="card-text">No Available</p>
           {% else %}
-          <p class="card-text">{{ BP }} L</p>
+          <p class="card-text" style="font-size: 25px;">{{ BP|floatformat:2 }} L</p>
           {% endif %}
           <a href="{% url 'bType' blood='B+' %}" class="btn btn-primary">Show</a>
         </div>
       </div>
 </div>
 <div class="col-xl-3 col-sm-6 mb-xl-4 mb-4">
-    <div class="card text-right" style="width: 18rem; background-color: #fffefe1a; border-radius: 1.25rem;">
+    <div class="card text-right shadow" style="width: 18rem; background-color: #fffefe1a; border-radius: 1.25rem;">
         <div class="card-body">
           <h5 class="card-title text-left"><i class="fa-solid fa-droplet" style="color: red;"></i> Available for B-</h5>
           {% if BN == None %}
           <p class="card-text">No Available</p>
           {% else %}
-          <p class="card-text">{{ BN }} L</p>
+          <p class="card-text" style="font-size: 25px;">{{ BN|floatformat:2 }} L</p>
           {% endif %}
           <a href="{% url 'bType' blood='B-' %}" class="btn btn-primary">Show</a>
         </div>
       </div>
 </div>
 <div class="col-xl-3 col-sm-6 mb-xl-4 mb-4">
-    <div class="card text-right" style="width: 18rem; background-color: #fffefe1a; border-radius: 1.25rem;">
+    <div class="card text-right shadow" style="width: 18rem; background-color: #fffefe1a; border-radius: 1.25rem;">
         <div class="card-body">
           <h5 class="card-title text-left"><i class="fa-solid fa-droplet" style="color: red;"></i> Available for AB+</h5>
           {% if ABP == None %}
           <p class="card-text">No Available</p>
           {% else %}
-          <p class="card-text">{{ ABP|floatformat:2 }} L</p>
+          <p class="card-text" style="font-size: 25px;">{{ ABP|floatformat:2 }} L</p>
           {% endif %}
           <a href="{% url 'bType' blood='AB+' %}" class="btn btn-primary">Show</a>
         </div>
       </div>
 </div>
 <div class="col-xl-3 col-sm-6 mb-xl-4 mb-4">
-    <div class="card text-right" style="width: 18rem; background-color: #fffefe1a; border-radius: 1.25rem;">
+    <div class="card text-right shadow" style="width: 18rem; background-color: #fffefe1a; border-radius: 1.25rem;">
         <div class="card-body">
           <h5 class="card-title text-left"><i class="fa-solid fa-droplet" style="color: red;"></i> Available for AB-</h5>
           {% if ABN == None %}
           <p class="card-text">No Available</p>
           {% else %}
-          <p class="card-text">{{ ABN }} L</p>
+          <p class="card-text" style="font-size: 25px;">{{ ABN|floatformat:2 }} L</p>
           {% endif %}
           <a href="{% url 'bType' blood='AB-' %}" class="btn btn-primary">Show</a>
         </div>
       </div>
 </div>
 <div class="col-xl-3 col-sm-6 mb-xl-4 mb-4">
-    <div class="card text-right" style="width: 18rem; background-color: #fffefe1a; border-radius: 1.25rem;">
+    <div class="card text-right shadow" style="width: 18rem; background-color: #fffefe1a; border-radius: 1.25rem;">
         <div class="card-body">
           <h5 class="card-title text-left"><i class="fa-solid fa-droplet" style="color: red;"></i> Available for O+</h5>
           {% if OP == None %}
           <p class="card-text">No Available</p>
           {% else %}
-          <p class="card-text">{{ OP }} L</p>
+          <p class="card-text" style="font-size: 25px;">{{ OP|floatformat:2 }} L</p>
           {% endif %}
           <a href="{% url 'bType' blood='O+' %}" class="btn btn-primary">Show</a>
         </div>
       </div>
 </div>
 <div class="col-xl-3 col-sm-6 mb-xl-4 mb-4">
-    <div class="card text-right" style="width: 18rem; background-color: #fffefe1a; border-radius: 1.25rem;">
+    <div class="card text-right shadow" style="width: 18rem; background-color: #fffefe1a; border-radius: 1.25rem;">
         <div class="card-body">
           <h5 class="card-title text-left"><i class="fa-solid fa-droplet" style="color: red;"></i> Available for O-</h5>
           {% if ON == None %}
           <p class="card-text">No Available</p>
           {% else %}
-          <p class="card-text">{{ ON }} L</p>
+          <p class="card-text" style="font-size: 25px;">{{ ON|floatformat:2 }} L</p>
           {% endif %}
           <a href="{% url 'bType' blood='O-' %}" class="btn btn-primary">Show</a>
         </div>
