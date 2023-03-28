@@ -6,7 +6,6 @@ urlpatterns = [
 
     # Home
     path('', views.blood_available, name="blood_available"),
-    # path('Blood Available/A+', views.BloodAv, name="A+"),
     path('Blood Available/<str:blood>', views.BloodAv, name="bType"),
 
     # Donations
@@ -21,7 +20,13 @@ urlpatterns = [
     path('updatePatient/<int:id>', views.update_patient, name="updatepatient"),
     path('deletePatient/<int:id>', views.delete_patient, name="deletePatient"),
 
+    # Signup
+    path('Signup/', views.signup, name="signup"),
     
-    # path('Logout/', views.logout, name="logout"),
+    # Login & Logout
+    path('Login/', views.log_in, name="login"),
+    path('Logout/', views.log_out, name="logout"),
+
+
     path('Profile/', views.profile, name="profile"),
 ]

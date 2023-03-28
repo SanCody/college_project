@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/8b6c379481.js" crossorigin="anonymous"></script>
+    <title>Register</title>
+    <style>
+        body{
+            background-image: url('{% static "/image/night.jpg" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        div div.box{
+            height: 325px;
+            width: 350px;
+            background: #ffffff12;
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            color: #fff;
+            border: 0.1px solid #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="box container">
+            <form method="POST" >
+                {% csrf_token %}
+                <h2 class="text-center">Log In</h2>
+                <div class="form-group">
+                    <label for="name">Name</label><br>
+                    {{ form.username }}
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label><br>
+                    {{ form.password }} 
+                    <input type="checkbox" onclick="showp()">
+                    <small>Show Password</small>
+                </div>    
+
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+                
+                <p class="text-center mt-3">Create new <a href="/Signup">Account?</a></p>
+            </form>
+        </div>
+    </div>
+
+
+
+    <script>
+        function showp() {
+            const x = document.getElementById("password");
+            if (x.type == "password"){
+                x.type = "text"
+            }else{
+                x.type = "password"
+            }
+        }
+    </script>
+</body>
+</html>
