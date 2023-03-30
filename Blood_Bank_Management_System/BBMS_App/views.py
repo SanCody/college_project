@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import Donor_Detail, Patient_Detail
-from .forms import DonorForm, patientForm, RegistrationForm, LoginForm
+from .forms import DonorForm, patientForm, RegistrationForm, LoginForm, ChangePassword, EditUser
 from django.contrib import messages
-from django.utils import timezone
 from django.db.models import Sum
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_control
 
@@ -199,9 +198,32 @@ def log_out(req):
 
 
 
-
+# <---------------|| Profile ||--------------->
 
 @login_required(login_url='login')
 def profile(req):
-    print(timezone.now)
     return render(req, "profile.html")
+
+@login_required(login_url='login')
+def changePassword(req):
+    if req.method == 'POST':
+        form = ChangePassword(user=req.user, data=req.POST)
+        if form.is_valid():
+            form.save()
+        else:
+            print("no")
+    else:
+        form = ChangePassword(user=req.user)
+    return render(req, "chgP.html", {"form":form})
+
+@login_required(login_url='login')
+def changeUser(req):
+    form=EditUser(req.POST, instance=req.user)
+    print(req.user)
+    if req.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+        else:
+            form = EditUser(instance=req.user)
+    return render(req, 'editUser.html', {'form': form})

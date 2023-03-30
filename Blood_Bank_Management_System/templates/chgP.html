@@ -1,0 +1,35 @@
+{% extends "main.html" %}
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+{% include "navigation.html" %}
+
+
+
+  <div class="container">
+    <div class="card" style="width: 100%; background-color: rgba(255, 255, 255, 0.164);">
+        <div class="card-body">
+            <h3 class="card-title mb-4">Change Password</h3>
+            <div class="container card-text">
+                <form action="" method="post">
+                    {% csrf_token %}
+
+                    <label for="Old Password" >Old Password:</label>
+                    {{ form.old_password }}
+                    <br>
+                    <label for="New Password">New Password:</label>
+                    {{ form.new_password1 }}
+                    <br>
+                    <label for="Confirm Password">Confirm Password:</label>
+                    {{ form.new_password2 }}
+                    <br>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary">Save Password</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

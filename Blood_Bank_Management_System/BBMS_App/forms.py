@@ -1,6 +1,6 @@
 from django import forms
 from .models import Donor_Detail, Patient_Detail
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm, UserChangeForm
 from django.contrib.auth.models import User
 
 class DonorForm(forms.ModelForm):
@@ -71,4 +71,49 @@ class LoginForm(AuthenticationForm):
         }
     ))
 
+class ChangePassword(PasswordChangeForm):
+    old_password = forms.CharField(widget=forms.PasswordInput(
+        attrs={
+        'class': 'form-control', 
+        'placeholder': 'Old Password'
+        }
+    ))
+    
+    new_password1 = forms.CharField(widget=forms.PasswordInput(
+        attrs={
+        'class': 'form-control', 
+        'placeholder': 'New Password',
+        'id':'cPassword'
+        }
+    ))
 
+    new_password2 = forms.CharField(widget=forms.PasswordInput(
+        attrs={
+        'class': 'form-control', 
+        'placeholder': 'Confirm Password',
+        }
+    ))
+
+class EditUser(UserChangeForm):
+    password = None
+
+    class Meta:
+        model = User
+        fields = ['username', 'email']
+        
+    def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.fields['username'].widget.attrs.update({
+                'class':'form-control',
+                'placeholder':'username',
+                'value': self.instance.username
+            })
+            self.fields['email'].widget.attrs.update({
+                'class':'form-control',
+                'placeholder':'email',
+                'value': self.instance.email
+            })
+
+    
+        
+        

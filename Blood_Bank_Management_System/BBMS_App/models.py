@@ -20,15 +20,6 @@ class Donor_Detail(models.Model):
     def __str__(self):
         return self.name
 
-    # def get_total_volume(self):
-    #     try:
-    #         total_donation = Donor_Detail.objects.filter(blood = self.blood).aggregate(Sum('volume'))
-    #         if total_donation is None:
-    #             total_donation = 0
-    #     except:
-    #         total_donation = 0
-    #     return total_donation
-
 class Patient_Detail(models.Model):
     patientName = models.CharField(max_length=200)
     patientAge = models.CharField(max_length=5)

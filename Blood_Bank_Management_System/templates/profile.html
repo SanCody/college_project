@@ -4,6 +4,26 @@
 {% block body %}
 {% include "navigation.html" %}
 
-<h1>Pro</h1>    
+<div class="container">
+    <div class="card" style="width: 100%; background-color: rgba(255, 255, 255, 0.164);">
+        <div class="card-body">
+            <h3 class="card-title">Profile</h3>
+            <div class="container card-text">
+                {% if user.is_authenticated %}
+                UserName: <br>
+                <p class="ml-5">{{user.username}}</p>
+                <br>
+                Email: <br>
+                <p class="ml-5">{{user.email}}</p>
+                
+                {% endif %}
+            </div><br><br>
+            <div class="text-right">
+                <a href="/chgP" class="btn btn-success">Change Password</a>
+                <a href="/EditUser" class="btn btn-primary">Edit Profile</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
