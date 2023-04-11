@@ -10,10 +10,13 @@ body {
   background-attachment: fixed;
   background-position: center;  */
 }
-nav div ul .nav-item:hover, nav div ul .nav-item:active {
+nav div ul .nav-link:hover, nav div ul .nav-link: active {
     border: 1px solid #ffffff;
     color: white;
 }
+
+
+
 
 .table-hover tbody tr:hover > th {
     background-color: rgba(0, 0, 0, 0.15);

@@ -10,7 +10,7 @@
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" class="form-control" name="name" value="{{donor.name}}">
+              <input type="text" class="form-control" name="name" value="{{donor.name}}" required>
             </div>
             <div class="form-group">
               <label for="gender">Gender</label>
@@ -22,21 +22,21 @@
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email"class="form-control" name="email" value="{{donor.email}}">
+              <input type="email"class="form-control" name="email" value="{{donor.email}}" required>
             </div>
             <div class="form-group">
               <label for="contact">Contact</label>
-              <input type="tel" class="form-control" name="contact" value="{{donor.contact}}">
+              <input type="tel" class="form-control" name="contact" value="{{donor.contact}}" required>
             </div>
             <div class="form-group">
               <label for="address">Address</label>
-                <textarea class="form-control" rows="3" name="address">{{donor.address}}</textarea>
+                <textarea class="form-control" rows="3" name="address" required>{{donor.address}}</textarea>
               </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="form-group">
               <label for="date">Donation Date</label>
-              <input type="date" class="form-control" name="date" value="{{donor.date|date:'Y-m-d'}}">
+              <input type="date" class="form-control" name="date" value="{{donor.date|date:'Y-m-d'}}" required>
             </div>
             <div class="form-group">
               <label for="blood">Blood Type</label>
@@ -54,7 +54,7 @@
             </div>
             <div class="form-group">
               <label for="volume">Blood Volume</label>
-              <input type="number" class="form-control" name="volume" value="{{donor.volume}}">
+              <input type="number" class="form-control" name="volume" value="{{donor.volume}}" required>
             </div>
           </div>
         </div>

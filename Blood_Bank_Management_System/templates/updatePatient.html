@@ -10,11 +10,11 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                   <div class="form-group">
                     <label for="patientName">Patient Name</label>
-                    <input type="text" class="form-control" name="patientName" value="{{patient.patientName}}">
+                    <input type="text" class="form-control" name="patientName" value="{{patient.patientName}}" required>
                   </div>
                   <div class="form-group">
                     <label for="patientAge">Age</label>
-                    <input type="number" class="form-control" name="patientAge" value="{{patient.patientAge}}">
+                    <input type="number" class="form-control" name="patientAge" value="{{patient.patientAge}}" required>
                   </div>
                   <div class="form-group">
                     <label for="patientGender">Gender</label>
@@ -26,11 +26,11 @@
                   </div>
                   <div class="form-group">
                     <label for="patientContact">Contact</label>
-                    <input type="tel" class="form-control" name="patientContact" value="{{patient.patientContact}}">
+                    <input type="tel" class="form-control" name="patientContact" value="{{patient.patientContact}}" required>
                   </div>
                   <div class="form-group">
                     <label for="patientPhysician">Physician Name</label>
-                    <input type="text" class="form-control" name="patientPhysician" value="{{patient.patientPhysician}}">
+                    <input type="text" class="form-control" name="patientPhysician" value="{{patient.patientPhysician}}" required>
                   </div>
                 </div>
                 
@@ -51,7 +51,7 @@
                   </div>
                   <div class="form-group">
                     <label for="patientBloodVolume">Blood Volume</label>
-                    <input type="number" class="form-control" name="patientBloodVolume" min="100" max="1000" value="{{patient.patientBloodVolume}}">
+                    <input type="number" class="form-control" name="patientBloodVolume" min="100" max="1000" value="{{patient.patientBloodVolume}}" required>
                   </div>
                   <div class="form-group">
                     <label for="patientStatus">Status</label>
@@ -65,11 +65,11 @@
                   </div>
                   <div class="form-group">
                     <label for="patientRequestDate">Date</label>
-                    <input type="date" class="form-control" name="patientRequestDate" value="{{patient.patientRequestDate|date:'Y-m-d'}}">
+                    <input type="date" class="form-control" name="patientRequestDate" value="{{patient.patientRequestDate|date:'Y-m-d'}}" required>
                   </div>
                   <div class="form-group">
                     <label for="patientRequisitionDate">Requisition of Blood</label>
-                    <input type="date" class="form-control" name="patientRequisitionDate" value="{{patient.patientRequisitionDate|date:'Y-m-d'}}">
+                    <input type="date" class="form-control" name="patientRequisitionDate" value="{{patient.patientRequisitionDate|date:'Y-m-d'}}" required>
                   </div>
                 </div>
                 <div class="card-footer d-flex justify-content-end" style="width: 100%;">

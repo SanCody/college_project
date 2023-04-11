@@ -59,11 +59,11 @@ def donations(req):
     if donorForm.is_valid():
         donorForm.save()
         print("success")
-        messages.success(req, "New Donar Added")
+        messages.success(req, "New Donar Added Successfully")
     else:
         donorForm = DonorForm()
+        messages.warning(req, "Adding New Donor Failed")
         print("failed")
-    # view table
         
     return render(req, "donations.html", donorTable)
 
@@ -86,7 +86,8 @@ def update_donor(req, id):
     , instance=update_data)
     if update_form.is_valid():
         update_form.save()
-        return redirect('/Donations')
+        return redirect('/Donations', messages.success(req, "Donar Updated Successfully"))
+        
     
     return render(req, "update_donorForm.html", donor )
 
@@ -96,7 +97,7 @@ def delete_donor(req, id):
     donor_data = Donor_Detail.objects.get(id = id)
     donor_data.delete()
     print("donor deleted")
-    return redirect("/Donations")
+    return redirect("/Donations", messages.success(req, "Donar Deleted Successfully"))
 
 
 # <---------------|| Requests ||--------------->
@@ -113,9 +114,10 @@ def requests(req):
     if patient_form.is_valid():
         patient_form.save()
         print(" request success")
-        messages.success(req, "New Donar Added")
+        messages.success(req, "New Blood Request Added")
     else:
         patient_form = patientForm(req.POST or None)
+        messages.warning(req, "Adding New Request Failded")
         print("request failed")
     return render(req, "requests.html", patientTable)
 
@@ -136,7 +138,7 @@ def update_patient(req, id):
     , instance=update_data)
     if update_form.is_valid():
         update_form.save()
-        return redirect('/Requests')
+        return redirect('/Requests', messages.success(req, "Patient Detail Updated Successfully"))
     
     return render(req, "updatePatient.html", patient )
 
@@ -146,7 +148,7 @@ def delete_patient(req, id):
     patient_data = Patient_Detail.objects.get(id = id)
     patient_data.delete()
     print("patient deleted")
-    return redirect("/Requests")
+    return redirect("/Requests", messages.success(req, "Patient Deleted Successfully"))
 
 # <---------------|| Signup ||--------------->
 
@@ -210,8 +212,12 @@ def changePassword(req):
         form = ChangePassword(user=req.user, data=req.POST)
         if form.is_valid():
             form.save()
+            return render(req, "profile.html", messages.success(req, "Password Changed Successfully"))
+
         else:
             print("no")
+            messages.success(req, "Something Wrong")
+
     else:
         form = ChangePassword(user=req.user)
     return render(req, "chgP.html", {"form":form})
@@ -223,7 +229,10 @@ def changeUser(req):
     if req.method == 'POST':
         if form.is_valid():
             form.save()
+            messages.success(req, "Profile Updated Successfully")
             return redirect('profile')
         else:
             form = EditUser(instance=req.user)
+            messages.success(req, "Something Wrong")
+
     return render(req, 'editUser.html', {'form': form})

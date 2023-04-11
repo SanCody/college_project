@@ -58,6 +58,7 @@ class RegistrationForm(UserCreationForm):
 class LoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(
         attrs={
+        'required':'',
         'class': 'form-control', 
         'placeholder': 'Username'
         }
@@ -65,6 +66,7 @@ class LoginForm(AuthenticationForm):
     
     password = forms.CharField(widget=forms.PasswordInput(
         attrs={
+        'required':'',
         'class': 'form-control', 
         'placeholder': 'Password',
         'id':'password'
@@ -74,13 +76,16 @@ class LoginForm(AuthenticationForm):
 class ChangePassword(PasswordChangeForm):
     old_password = forms.CharField(widget=forms.PasswordInput(
         attrs={
+        'required':'',
         'class': 'form-control', 
-        'placeholder': 'Old Password'
+        'placeholder': 'Old Password',
+        'id':'cPassword'
         }
     ))
     
     new_password1 = forms.CharField(widget=forms.PasswordInput(
         attrs={
+        'required':'',
         'class': 'form-control', 
         'placeholder': 'New Password',
         'id':'cPassword'
@@ -89,6 +94,7 @@ class ChangePassword(PasswordChangeForm):
 
     new_password2 = forms.CharField(widget=forms.PasswordInput(
         attrs={
+            'required':'',
         'class': 'form-control', 
         'placeholder': 'Confirm Password',
         }
@@ -104,11 +110,13 @@ class EditUser(UserChangeForm):
     def __init__(self, *args, **kwargs):
             super().__init__(*args, **kwargs)
             self.fields['username'].widget.attrs.update({
+                'required':'',
                 'class':'form-control',
                 'placeholder':'username',
                 'value': self.instance.username
             })
             self.fields['email'].widget.attrs.update({
+                'required':'',
                 'class':'form-control',
                 'placeholder':'email',
                 'value': self.instance.email
