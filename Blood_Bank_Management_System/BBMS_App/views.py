@@ -56,14 +56,15 @@ def donations(req):
     # insert table
     donorForm = DonorForm(req.POST or None)
     print("oh yeah")
-    if donorForm.is_valid():
-        donorForm.save()
-        print("success")
-        messages.success(req, "New Donar Added Successfully")
-    else:
-        donorForm = DonorForm()
-        messages.warning(req, "Adding New Donor Failed")
-        print("failed")
+    if req.method == 'POST':
+        if donorForm.is_valid():
+            donorForm.save()
+            print("success")
+            messages.success(req, "New Donar Added Successfully")
+        else:
+            donorForm = DonorForm()
+            messages.warning(req, "Adding New Donor Failed")
+            print("failed")
         
     return render(req, "donations.html", donorTable)
 
@@ -111,14 +112,15 @@ def requests(req):
     # insert table
     patient_form = patientForm(req.POST or None)
     print("oh yeah")
-    if patient_form.is_valid():
-        patient_form.save()
-        print(" request success")
-        messages.success(req, "New Blood Request Added")
-    else:
-        patient_form = patientForm(req.POST or None)
-        messages.warning(req, "Adding New Request Failded")
-        print("request failed")
+    if req.method == 'POST': 
+        if patient_form.is_valid():
+            patient_form.save()
+            print(" request success")
+            messages.success(req, "New Blood Request Added")
+        else:
+            patient_form = patientForm(req.POST or None)
+            messages.warning(req, "Adding New Request Failed")
+            print("request failed")
     return render(req, "requests.html", patientTable)
 
 @cache_control(no_cache=True, must_revalidate=True)
